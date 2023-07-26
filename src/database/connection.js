@@ -1,11 +1,13 @@
 import mongoose from "mongoose";
 
-const uri = process.env.MONGO_URI;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env_DB_PASSWORD}@merndb.rlaroi3.mongodb.net/?retryWrites=true&w=majority`;
 
 const connect = async () => {
   try {
-    await mongoose.connect(uri, {
+    await mongoose.connect(uri,  {
       useNewUrlParser: true,
+      useFindAndModify: false,
+      useUnifiedTopology: true,
     });
     console.log("Connected to the database");
   } catch (error) {
