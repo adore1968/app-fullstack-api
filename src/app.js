@@ -10,6 +10,7 @@ import tasksRoutes from "./routes/tasks.routes.js";
 
 // server
 const app = express();
+app.set("trust proxy", 1);
 
 // database
 connect();
