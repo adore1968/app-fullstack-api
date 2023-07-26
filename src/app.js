@@ -1,4 +1,5 @@
 import express from "express";
+import connect from "./database/connection.js";
 import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -9,6 +10,9 @@ import tasksRoutes from "./routes/tasks.routes.js";
 
 // server
 const app = express();
+
+// database
+connect();
 
 // settings
 dotenv.config();
