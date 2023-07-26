@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env_DB_PASSWORD}@merndb.rlaroi3.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@merndb.rlaroi3.mongodb.net/?retryWrites=true&w=majority`;
 
 const connect = async () => {
   try {
