@@ -28,9 +28,8 @@ export const registerController = async (req, res) => {
     const userSaved = await newUser.save();
     const token = await createAccessToken({ id: userSaved._id });
     res.cookie("token", token, {
-    httpOnly: true,
     secure: true,
-    sameSite: "none",
+    sameSite: "None",
   });
     res.status(201).json({
       id: userSaved._id,
@@ -55,9 +54,8 @@ export const loginController = async (req, res) => {
     }
     const token = await createAccessToken({ id: userFound._id });
     res.cookie("token", token, {
-    httpOnly: true,
     secure: true,
-    sameSite: "none",
+    sameSite: "None",
   });
     res.json({
       id: userFound._id,
