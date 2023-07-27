@@ -30,7 +30,7 @@ export const registerController = async (req, res) => {
     res.cookie("token", token, {
     httpOnly: true,
     secure: true,
-    sameSite: "None",
+    sameSite: "none",
   });
     res.status(201).json({
       id: userSaved._id,
@@ -57,7 +57,7 @@ export const loginController = async (req, res) => {
     res.cookie("token", token, {
     httpOnly: true,
     secure: true,
-    sameSite: "None",
+    sameSite: "none",
   });
     res.json({
       id: userFound._id,
