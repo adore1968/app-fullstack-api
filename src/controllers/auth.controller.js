@@ -27,7 +27,11 @@ export const registerController = async (req, res) => {
     const newUser = new User({ username, email, password: hashPassword });
     const userSaved = await newUser.save();
     const token = await createAccessToken({ id: userSaved._id });
-    res.cookie("token", token);
+    res.cookie("token", token, {
+    httpOnly: true,
+    secure: true,
+    sameSite: "lax",
+  });
     res.status(201).json({
       id: userSaved._id,
       username: userSaved.username,
@@ -50,7 +54,11 @@ export const loginController = async (req, res) => {
       return res.status(401).json({ message: "Passwords do not match" });
     }
     const token = await createAccessToken({ id: userFound._id });
-    res.cookie("token", token);
+    res.cookie("token", token, {
+    httpOnly: true,
+    secure: true,
+    sameSite: "lax",
+  });
     res.json({
       id: userFound._id,
       username: userFound.username,
